@@ -10,7 +10,7 @@
 
 #import "DingtalkUI.h"
 #import <UIKit/UIKit.h>
-#import "CaptainHook.h"
+//#import "CaptainHook.h"
 #import <MDSettingCenter/MDSettingCenter.h>
 #import <DingtalkPod/DingtalkPod.h>
 #import "DingtalkUI.h"
@@ -41,19 +41,19 @@
 }
 @end
 
-CHDeclareClass(CoordinateForm)
-
-CHOptimizedMethod(0, self, void, CoordinateForm, submitCoordinate){
-    NSLog(@"asdlfkjasdl;fksadl;困死了");
-    
-//    [NSNotificationCenter defaultCenter] postNotificationName:<#(nonnull NSNotificationName)#> object:<#(nullable id)#> userInfo:<#(nullable NSDictionary *)#>
-}
-
-CHConstructor{
-    CHLoadLateClass(CoordinateForm);
-    CHClassHook(0, CoordinateForm, submitCoordinate);
-}
-
+//CHDeclareClass(CoordinateForm)
+//
+//CHOptimizedMethod(0, self, void, CoordinateForm, submitCoordinate){
+//    NSLog(@"asdlfkjasdl;fksadl;困死了");
+//    
+////    [NSNotificationCenter defaultCenter] postNotificationName:<#(nonnull NSNotificationName)#> object:<#(nullable id)#> userInfo:<#(nullable NSDictionary *)#>
+//}
+//
+//CHConstructor{
+//    CHLoadLateClass(CoordinateForm);
+//    CHClassHook(0, CoordinateForm, submitCoordinate);
+//}
+//
 
 
 

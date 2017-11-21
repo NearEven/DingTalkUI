@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D5FAC0AC6DB118E9D3DCBB4 /* Pods_DingtalkUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AEECC7D926BD26D5CC5AC8 /* Pods_DingtalkUI.framework */; };
 		647CF7DD1FC3F32000DF3739 /* DingtalkUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 647CF7DC1FC3F32000DF3739 /* DingtalkUI.m */; };
-		647CF7DF1FC3F32000DF3739 /* DingtalkUI.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 647CF7DE1FC3F32000DF3739 /* DingtalkUI.podspec */; };
 		647CF7E11FC3F32000DF3739 /* DingtalkUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 647CF7DB1FC3F32000DF3739 /* DingtalkUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		647CF7E91FC3F75A00DF3739 /* CoordinateForm.h in Headers */ = {isa = PBXBuildFile; fileRef = 647CF7E71FC3F75A00DF3739 /* CoordinateForm.h */; };
 		647CF7EA1FC3F75A00DF3739 /* CoordinateForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 647CF7E81FC3F75A00DF3739 /* CoordinateForm.m */; };
@@ -20,7 +19,6 @@
 		647CF7D81FC3F32000DF3739 /* DingtalkUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DingtalkUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		647CF7DB1FC3F32000DF3739 /* DingtalkUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DingtalkUI.h; sourceTree = "<group>"; };
 		647CF7DC1FC3F32000DF3739 /* DingtalkUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DingtalkUI.m; sourceTree = "<group>"; };
-		647CF7DE1FC3F32000DF3739 /* DingtalkUI.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DingtalkUI.podspec; sourceTree = "<group>"; };
 		647CF7E01FC3F32000DF3739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		647CF7E71FC3F75A00DF3739 /* CoordinateForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoordinateForm.h; sourceTree = "<group>"; };
 		647CF7E81FC3F75A00DF3739 /* CoordinateForm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoordinateForm.m; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 			children = (
 				647CF7DB1FC3F32000DF3739 /* DingtalkUI.h */,
 				647CF7DC1FC3F32000DF3739 /* DingtalkUI.m */,
-				647CF7DE1FC3F32000DF3739 /* DingtalkUI.podspec */,
 				647CF7E01FC3F32000DF3739 /* Info.plist */,
 				647CF7E71FC3F75A00DF3739 /* CoordinateForm.h */,
 				647CF7E81FC3F75A00DF3739 /* CoordinateForm.m */,
@@ -160,7 +157,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				647CF7DF1FC3F32000DF3739 /* DingtalkUI.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
