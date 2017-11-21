@@ -1,0 +1,18 @@
+PODS:
+  - CaptainHook (2.0.0)
+  - DingtalkPod (1.0.2):
+    - CaptainHook
+  - MDSettingCenter (1.1.0)
+
+DEPENDENCIES:
+  - DingtalkPod
+  - MDSettingCenter
+
+SPEC CHECKSUMS:
+  CaptainHook: 3889d18beaf6a87b19c9bb47f5c8348a0b275036
+  DingtalkPod: 8a629715e388c8868556a4739763f0832c149707
+  MDSettingCenter: 41b910206cd1d826e11247413cd48a068d38e274
+
+PODFILE CHECKSUM: 093b8a8333ed3492f23725bc7ff9521cb50acf00
+
+COCOAPODS: 1.3.1
