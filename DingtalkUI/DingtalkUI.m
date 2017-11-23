@@ -10,13 +10,14 @@
 
 #import "DingtalkUI.h"
 #import <UIKit/UIKit.h>
-//#import "CaptainHook.h"
+#import "CaptainHook.h"
 #import <MDSettingCenter/MDSettingCenter.h>
+#import <MDSettingCenter/MDSettingsViewController.h>
 #import <DingtalkPod/DingtalkPod.h>
 #import "DingtalkUI.h"
 #import "CoordinateForm.h"
-@implementation DingtalkUI
 
+@implementation DingtalkUI
 
 + (instancetype)sharedInstance{
     static DingtalkUI *instance = nil;
@@ -27,44 +28,39 @@
     return instance;
 }
 
-
+// 添加悬浮球
 - (void)addToWindow:(UIWindow *)window{
     MDSuspendBall *ballInstance = [MDSuspendBall sharedInstance];
     [ballInstance addToWindow:window];
-//    ballInstance
-    
-    SettingForm *form = [[SettingForm alloc] init];
-    [form registerForm:[CoordinateForm new]];
-    
-    
-//    [[DingtalkPod alloc] setLocation:nil];
 }
 @end
 
-//CHDeclareClass(CoordinateForm)
-//
-//CHOptimizedMethod(0, self, void, CoordinateForm, submitCoordinate){
-//    NSLog(@"asdlfkjasdl;fksadl;困死了");
-//    
-////    [NSNotificationCenter defaultCenter] postNotificationName:<#(nonnull NSNotificationName)#> object:<#(nullable id)#> userInfo:<#(nullable NSDictionary *)#>
-//}
-//
-//CHConstructor{
-//    CHLoadLateClass(CoordinateForm);
-//    CHClassHook(0, CoordinateForm, submitCoordinate);
-//}
-//
+CHDeclareClass(MDSettingsViewController)
+
+// 设置fxform
+CHOptimizedMethod0(self, void,MDSettingsViewController, setupSubViews){
+    CHSuper0(MDSettingsViewController, setupSubViews);
+    FXFormController *controller = [self valueForKeyPath:@"formController"];
+    CoordinateForm *cForm = [[CoordinateForm alloc] init];
+    controller.form  = cForm;
+}
+
+// 设置coordinate
+CHDeclareMethod0(void, MDSettingsViewController, modifyCoordinate){
+    FXFormController *controller = [self valueForKeyPath:@"formController"];
+    CoordinateForm *form = controller.form;
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([form.latitude doubleValue], [form.longitude doubleValue]);
+    [[DingtalkPod alloc] setLocation:coordinate];
+}
+// 搜索coordinate
+CHDeclareMethod0(void, MDSettingsViewController, searchCoordinate){
+    
+}
+
+CHConstructor{
+    CHLoadLateClass(MDSettingsViewController);
+    CHHook0(MDSettingsViewController, setupSubViews);
+}
 
 
-
-//CHDeclareClass(CustomViewController)
-//
-//CHOptimizedMethod(0, self, NSString*, CustomViewController,getMyName){
-//    return @"MonkeyDevPod";
-//}
-//
-//CHConstructor{
-//    CHLoadLateClass(CustomViewController);
-//    CHClassHook(0, CustomViewController, getMyName);
-//}
 

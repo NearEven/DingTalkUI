@@ -4,5 +4,9 @@ use_frameworks!
 
 target 'DingtalkUI' do           
      pod 'DingtalkPod'
-     pod 'MDSettingCenter'              
+     pod 'MDSettingCenter'  
+  
+#高德地图
+      pod 'AMap3DMap'
+      pod 'AMapSearch'            
  end

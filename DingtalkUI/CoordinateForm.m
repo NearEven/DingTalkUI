@@ -26,9 +26,15 @@
     return @[
              @{FXFormFieldTitle:@"提交",
                FXFormFieldHeader:@"",
-               FXFormFieldAction:@"submitCoordinate"
+               FXFormFieldAction:@"modifyCoordinate"
+               },
+             @{FXFormFieldTitle:@"搜索",
+               FXFormFieldHeader:@"",
+               FXFormFieldAction:@"searchCoordinate"
                }
              ];
 }
 
+
 @end
+
