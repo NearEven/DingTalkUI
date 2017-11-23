@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MDSettingCenter/MDSettingCenter.h>
 @interface CoordinateForm : NSObject <FXForm>
-//
-//@property(copy, nonatomic)NSString  *latitude;
-//@property(copy, nonatomic)NSString *longitude;
+
+@property(copy, nonatomic)NSString  *latitude;
+@property(copy, nonatomic)NSString *longitude;
 
 @end
