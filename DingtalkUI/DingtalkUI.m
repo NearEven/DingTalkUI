@@ -16,7 +16,9 @@
 #import <DingtalkPod/DingtalkPod.h>
 #import "DingtalkUI.h"
 #import "CoordinateForm.h"
-
+//#import <MAMapKit/MAMapKit.h>
+//#import <AMapFoundationKit/AMapFoundationKit.h>
+#import "MapSearchViewController.h"
 @implementation DingtalkUI
 
 + (instancetype)sharedInstance{
@@ -52,15 +54,19 @@ CHDeclareMethod0(void, MDSettingsViewController, modifyCoordinate){
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([form.latitude doubleValue], [form.longitude doubleValue]);
     [[DingtalkPod alloc] setLocation:coordinate];
 }
+
 // 搜索coordinate
 CHDeclareMethod0(void, MDSettingsViewController, searchCoordinate){
-    
+    [self.navigationController pushViewController:[MapSearchViewController new] animated:YES];
 }
 
 CHConstructor{
     CHLoadLateClass(MDSettingsViewController);
     CHHook0(MDSettingsViewController, setupSubViews);
 }
+
+
+
 
 
 

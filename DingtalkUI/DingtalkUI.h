@@ -10,6 +10,7 @@
 
 
 @interface DingtalkUI: NSObject
++ (instancetype)sharedInstance;
 
 - (void)addToWindow:(UIWindow *)window;
 
