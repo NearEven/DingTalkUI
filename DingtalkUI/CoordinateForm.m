@@ -28,10 +28,16 @@
 //               FXFormFieldHeader:@"",
 //               FXFormFieldAction:@"modifyCoordinate"
 //               },
-             @{FXFormFieldTitle:@"搜索",
+             @{FXFormFieldTitle:@"本地搜索",
                FXFormFieldHeader:@"",
                FXFormFieldAction:@"searchCoordinate"
-               }
+               },
+             
+//             @{FXFormFieldTitle:@"高德地图搜索",
+//               FXFormFieldHeader:@"",
+//               FXFormFieldAction:@"aMapsearchCoordinate"
+//               }
+//
              ];
 }
 

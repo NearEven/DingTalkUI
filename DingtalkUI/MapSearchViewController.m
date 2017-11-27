@@ -14,7 +14,6 @@
 #import "POIAnnotation.h"
 #import <AMapSearchKit/AMapSearchAPI.h>
 
-
 @interface MapSearchCell: UITableViewCell
 @property(nonatomic, strong)UILabel *titlLabel;
 @property(nonatomic, strong)UILabel *subTitleLabel;
@@ -27,13 +26,14 @@
 @property(nonatomic, strong)UITableView *table;
 @property(nonatomic, strong)POIAnnotation *searchModel;
 @property(copy, nonatomic)NSArray *searchArr;
-
+@property(nonatomic, strong)POIAnnotation *poiAnnotation;
 @end
 
 @implementation MapSearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backItemAction)];
     self.view.backgroundColor = [UIColor whiteColor];
     [self initMapView];
     self.navigationItem.titleView = self.searchBar;
@@ -44,10 +44,60 @@
 - (void)initMapView{
     self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.delegate = self;
-    self.mapView.showsUserLocation = YES;
+    self.mapView.showsUserLocation = NO;
     self.mapView.userTrackingMode = MAUserTrackingModeFollow;
+    [self.mapView setZoomLevel:17 animated:YES];
+    self.mapView.touchPOIEnabled = YES;
     [self.view addSubview:self.mapView];
+    
+    UIView *zoomPannelView = [self makeZoomPannelView];
+    [self.mapView addSubview:zoomPannelView];
 }
+
+- (void)backItemAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (UIView *)makeZoomPannelView
+{
+    UIView *ret = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 60, self.view.frame.size.height - 105, 53, 98)];
+    ret.backgroundColor = [UIColor lightGrayColor];
+    
+    UIButton *incBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 53, 49)];
+    incBtn.backgroundColor = [UIColor whiteColor];
+    [incBtn setTitle:@"+" forState:UIControlStateNormal];
+    incBtn.titleLabel.font = [UIFont systemFontOfSize:30];
+    [incBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [incBtn addTarget:self action:@selector(zoomPlusAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *decBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 51, 53, 49)];
+    decBtn.backgroundColor = [UIColor whiteColor];
+    [decBtn setTitle:@"-" forState:UIControlStateNormal];
+    decBtn.titleLabel.font = [UIFont systemFontOfSize:30];
+    [decBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [decBtn addTarget:self action:@selector(zoomMinusAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [ret addSubview:incBtn];
+    [ret addSubview:decBtn];
+    
+    return ret;
+}
+
+- (void)zoomPlusAction
+{
+    CGFloat oldZoom = self.mapView.zoomLevel;
+    [self.mapView setZoomLevel:(oldZoom + 1) animated:YES];
+    self.mapView.showsScale = YES;
+}
+
+- (void)zoomMinusAction
+{
+    CGFloat oldZoom = self.mapView.zoomLevel;
+    [self.mapView setZoomLevel:(oldZoom - 1) animated:YES];
+    self.mapView.showsScale = NO;
+}
+
 
 - (UITableView *)table{
     if (!_table) {
@@ -111,12 +161,17 @@
 
 - (void)mapView:(MAMapView *)mapView annotationView:(MAAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-//    id<MAAnnotation> annotation = view.annotation;
-//
-//    if ([annotation isKindOfClass:[POIAnnotation class]])
-//    {
-//        POIAnnotation *poiAnnotation = (POIAnnotation*)annotation;
-//    }
+    id<MAAnnotation> annotation = view.annotation;
+    
+    if ([annotation isKindOfClass:[POIAnnotation class]])
+    {
+        POIAnnotation *poiAnnotation = (POIAnnotation*)annotation;
+        if (self.searchCoordinateBlock) {
+            self.searchCoordinateBlock(poiAnnotation.coordinate);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
@@ -131,13 +186,34 @@
             poiAnnotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:poiIdentifier];
         }
         poiAnnotationView.draggable = YES;
+        
         poiAnnotationView.canShowCallout = YES;
-        poiAnnotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        poiAnnotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeInfoDark];
         
         return poiAnnotationView;
     }
     
     return nil;
+}
+
+- (POIAnnotation *)annotationForTouchPoi:(MATouchPoi *)touchPoi{
+    if (touchPoi) {
+        POIAnnotation *annotation = [[POIAnnotation alloc] init];
+        annotation.title = touchPoi.name;
+        annotation.coordinate = touchPoi.coordinate;
+        return annotation;
+    }
+    return nil;
+}
+
+- (void)mapView:(MAMapView *)mapView didTouchPois:(NSArray *)pois{
+    if (pois.count) {
+        POIAnnotation *annotation = [self annotationForTouchPoi:pois[0]];
+        [self.mapView removeAnnotation:(id)self.poiAnnotation];
+        [self.mapView addAnnotation:(id)annotation];
+        [self.mapView selectAnnotation:(id)annotation animated:YES];
+        self.poiAnnotation = annotation;
+    }
 }
 
 #pragma mark - AMapSearchDelegate
@@ -167,15 +243,15 @@
     self.searchArr = [NSArray arrayWithArray:poiAnnotations];
     
     /* 如果只有一个结果，设置其为中心点. */
-    if (poiAnnotations.count == 1)
-    {
-        [self.mapView setCenterCoordinate:[poiAnnotations[0] coordinate]];
-    }
-    /* 如果有多个结果, 设置地图使所有的annotation都可见. */
-    else
-    {
-        [self.mapView showAnnotations:poiAnnotations animated:NO];
-    }
+//    if (poiAnnotations.count == 1)
+//    {
+//        [self.mapView setCenterCoordinate:[poiAnnotations[0] coordinate]];
+//    }
+//    /* 如果有多个结果, 设置地图使所有的annotation都可见. */
+//    else
+//    {
+//        [self.mapView showAnnotations:poiAnnotations animated:NO];
+//    }
     [self.table reloadData];
 }
 
@@ -206,12 +282,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.table.hidden = YES;
     POIAnnotation *annotation = self.searchArr[indexPath.row];
-    
-    if (self.searchCoordinateBlock) {
-        self.searchCoordinateBlock(annotation.coordinate);
-    }
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.mapView removeAnnotation:(id)self.poiAnnotation];
+    [self.mapView addAnnotation:(id)annotation];
+    [self.mapView selectAnnotation:(id)annotation animated:YES];
+    self.poiAnnotation = annotation;
+
 }
 
 #pragma mark - Utility

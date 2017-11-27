@@ -15,10 +15,13 @@
 - (id)initWithPOI:(AMapPOI *)poi;
 
 @property(nonatomic, strong)AMapPOI *poi;
-@property(readonly, nonatomic)CLLocationCoordinate2D coordinate;
+@property(assign, nonatomic)CLLocationCoordinate2D coordinate;
 
-- (NSString *)title;
-
-- (NSString *)subtitle;
+@property(nonatomic, strong)NSString *title;
+@property(nonatomic, strong)NSString *subtitle;
+//
+//- (NSString *)title;
+//
+//- (NSString *)subtitle;
 
 @end

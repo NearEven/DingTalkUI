@@ -71,6 +71,27 @@ CHDeclareMethod0(void, MDSettingsViewController, searchCoordinate){
     [self.navigationController pushViewController:mapController animated:YES];
 }
 
+CHDeclareMethod0(void, MDSettingsViewController, aMapsearchCoordinate){
+    NSURL *scheme = [NSURL URLWithString:@"iosamap://"];
+    BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:scheme];
+    
+    NSURL *myLocationScheme = [NSURL URLWithString:@"iosamap://myLocation?sourceApplication=DingTalk"];
+    if (canOpen) {
+        if ([[UIDevice currentDevice].systemVersion integerValue] >= 10) { //iOS10以后,使用新API
+            [[UIApplication sharedApplication] openURL:myLocationScheme options:@{} completionHandler:^(BOOL success) {
+                NSLog(@"scheme调用结束"); }];
+            
+        } else { //iOS10以前,使用旧API
+            [[UIApplication sharedApplication] openURL:myLocationScheme];
+            
+        }
+    }
+    
+ 
+    
+    
+}
+
 CHOptimizedMethod0(self, void, MDSettingsViewController, exit){
     
     FXFormController *controller = [self valueForKeyPath:@"formController"];
@@ -89,6 +110,16 @@ CHConstructor{
     CHHook0(MDSettingsViewController, setupSubViews);
     CHHook0(MDSettingsViewController, exit);
 }
+
+
+
+
+#pragma mark -- uri调用高德地图进行搜索
+
+
+
+
+
 
 #pragma mark - DingtalkPod
 // http://www.cnblogs.com/DafaRan/p/7522284.html author: Dafa blog: http://www.cnblogs.com/DafaRan/

@@ -12,8 +12,11 @@
 @interface DingtalkUI: NSObject
 + (instancetype)sharedInstance;
 
+/**
+ * @brief 添加悬浮球
+ * @param
+ */
 - (void)addToWindow:(UIWindow *)window;
-
 
 @end
 
