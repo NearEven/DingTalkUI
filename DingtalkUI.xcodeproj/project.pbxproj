@@ -12,6 +12,15 @@
 		647CF7E11FC3F32000DF3739 /* DingtalkUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 647CF7DB1FC3F32000DF3739 /* DingtalkUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		647CF7E91FC3F75A00DF3739 /* CoordinateForm.h in Headers */ = {isa = PBXBuildFile; fileRef = 647CF7E71FC3F75A00DF3739 /* CoordinateForm.h */; };
 		647CF7EA1FC3F75A00DF3739 /* CoordinateForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 647CF7E81FC3F75A00DF3739 /* CoordinateForm.m */; };
+		64EA6EB61FCBEE2300F76E70 /* DingtalkPluginConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EA6EAD1FCBEE2200F76E70 /* DingtalkPluginConfig.m */; };
+		64EA6EB71FCBEE2300F76E70 /* POIAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EA6EAE1FCBEE2200F76E70 /* POIAnnotation.m */; };
+		64EA6EB81FCBEE2300F76E70 /* MapSearchViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 64EA6EAF1FCBEE2200F76E70 /* MapSearchViewController.h */; };
+		64EA6EB91FCBEE2300F76E70 /* MapSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EA6EB01FCBEE2200F76E70 /* MapSearchViewController.m */; };
+		64EA6EBA1FCBEE2300F76E70 /* DingtalkPod.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EA6EB11FCBEE2300F76E70 /* DingtalkPod.m */; };
+		64EA6EBB1FCBEE2300F76E70 /* POIAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64EA6EB21FCBEE2300F76E70 /* POIAnnotation.h */; };
+		64EA6EBC1FCBEE2300F76E70 /* dingdingDylib.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EA6EB31FCBEE2300F76E70 /* dingdingDylib.m */; };
+		64EA6EBD1FCBEE2300F76E70 /* DingtalkPod.h in Headers */ = {isa = PBXBuildFile; fileRef = 64EA6EB41FCBEE2300F76E70 /* DingtalkPod.h */; };
+		64EA6EBE1FCBEE2300F76E70 /* DingtalkPluginConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 64EA6EB51FCBEE2300F76E70 /* DingtalkPluginConfig.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		647CF7E01FC3F32000DF3739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		647CF7E71FC3F75A00DF3739 /* CoordinateForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoordinateForm.h; sourceTree = "<group>"; };
 		647CF7E81FC3F75A00DF3739 /* CoordinateForm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoordinateForm.m; sourceTree = "<group>"; };
+		64EA6EAD1FCBEE2200F76E70 /* DingtalkPluginConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DingtalkPluginConfig.m; sourceTree = "<group>"; };
+		64EA6EAE1FCBEE2200F76E70 /* POIAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIAnnotation.m; sourceTree = "<group>"; };
+		64EA6EAF1FCBEE2200F76E70 /* MapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSearchViewController.h; sourceTree = "<group>"; };
+		64EA6EB01FCBEE2200F76E70 /* MapSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSearchViewController.m; sourceTree = "<group>"; };
+		64EA6EB11FCBEE2300F76E70 /* DingtalkPod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DingtalkPod.m; sourceTree = "<group>"; };
+		64EA6EB21FCBEE2300F76E70 /* POIAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIAnnotation.h; sourceTree = "<group>"; };
+		64EA6EB31FCBEE2300F76E70 /* dingdingDylib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dingdingDylib.m; sourceTree = "<group>"; };
+		64EA6EB41FCBEE2300F76E70 /* DingtalkPod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DingtalkPod.h; sourceTree = "<group>"; };
+		64EA6EB51FCBEE2300F76E70 /* DingtalkPluginConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DingtalkPluginConfig.h; sourceTree = "<group>"; };
 		F7A5CAC06DC5BBE1965CA117 /* Pods-DingtalkUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DingtalkUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DingtalkUI/Pods-DingtalkUI.debug.xcconfig"; sourceTree = "<group>"; };
 		F8AEECC7D926BD26D5CC5AC8 /* Pods_DingtalkUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DingtalkUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,6 +99,15 @@
 				647CF7E01FC3F32000DF3739 /* Info.plist */,
 				647CF7E71FC3F75A00DF3739 /* CoordinateForm.h */,
 				647CF7E81FC3F75A00DF3739 /* CoordinateForm.m */,
+				64EA6EB31FCBEE2300F76E70 /* dingdingDylib.m */,
+				64EA6EB51FCBEE2300F76E70 /* DingtalkPluginConfig.h */,
+				64EA6EAD1FCBEE2200F76E70 /* DingtalkPluginConfig.m */,
+				64EA6EB41FCBEE2300F76E70 /* DingtalkPod.h */,
+				64EA6EB11FCBEE2300F76E70 /* DingtalkPod.m */,
+				64EA6EAF1FCBEE2200F76E70 /* MapSearchViewController.h */,
+				64EA6EB01FCBEE2200F76E70 /* MapSearchViewController.m */,
+				64EA6EB21FCBEE2300F76E70 /* POIAnnotation.h */,
+				64EA6EAE1FCBEE2200F76E70 /* POIAnnotation.m */,
 			);
 			path = DingtalkUI;
 			sourceTree = "<group>";
@@ -92,7 +119,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64EA6EBD1FCBEE2300F76E70 /* DingtalkPod.h in Headers */,
+				64EA6EBB1FCBEE2300F76E70 /* POIAnnotation.h in Headers */,
 				647CF7E91FC3F75A00DF3739 /* CoordinateForm.h in Headers */,
+				64EA6EBE1FCBEE2300F76E70 /* DingtalkPluginConfig.h in Headers */,
+				64EA6EB81FCBEE2300F76E70 /* MapSearchViewController.h in Headers */,
 				647CF7E11FC3F32000DF3739 /* DingtalkUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,7 +235,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				647CF7DD1FC3F32000DF3739 /* DingtalkUI.m in Sources */,
+				64EA6EB71FCBEE2300F76E70 /* POIAnnotation.m in Sources */,
+				64EA6EB91FCBEE2300F76E70 /* MapSearchViewController.m in Sources */,
+				64EA6EB61FCBEE2300F76E70 /* DingtalkPluginConfig.m in Sources */,
+				64EA6EBC1FCBEE2300F76E70 /* dingdingDylib.m in Sources */,
 				647CF7EA1FC3F75A00DF3739 /* CoordinateForm.m in Sources */,
+				64EA6EBA1FCBEE2300F76E70 /* DingtalkPod.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
