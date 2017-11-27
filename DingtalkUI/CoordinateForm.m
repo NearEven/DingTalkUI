@@ -24,10 +24,10 @@
 
 - (NSArray *)extraFields{
     return @[
-             @{FXFormFieldTitle:@"提交",
-               FXFormFieldHeader:@"",
-               FXFormFieldAction:@"modifyCoordinate"
-               },
+//             @{FXFormFieldTitle:@"提交",
+//               FXFormFieldHeader:@"",
+//               FXFormFieldAction:@"modifyCoordinate"
+//               },
              @{FXFormFieldTitle:@"搜索",
                FXFormFieldHeader:@"",
                FXFormFieldAction:@"searchCoordinate"

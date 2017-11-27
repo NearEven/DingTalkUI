@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc     = true                                       #ARC
   spec.pod_target_xcconfig = { "ONLY_ACTIVE_ARCH" => "NO", 'HEADER_SEARCH_PATHS' => '/opt/MonkeyDev/include' }          #这个必须有，不要修改
 
-  spec.dependency 'DingtalkPod'
+  # spec.dependency 'DingtalkPod'
   spec.dependency 'MDSettingCenter'
   spec.dependency 'AMap3DMap'
   spec.dependency 'AMapSearch'

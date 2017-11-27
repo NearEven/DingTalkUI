@@ -6,7 +6,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MapKit/MapKit.h>
 @interface MapSearchViewController : UIViewController
+
+@property(copy, nonatomic)void (^searchCoordinateBlock)(CLLocationCoordinate2D coordinate);
 
 @end
